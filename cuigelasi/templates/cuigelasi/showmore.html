@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1.0" />
+<style>
+.alsp{ font-family:"楷体";font-size:20px}
+</style>
+<title>显示详细</title>
+</head>
+<body>
+<div style="text-align:center">
+{% if t  %}
+{% for photo in photo_list %}
+{% for photoblogmap in photoblogmap_list %}
+{% if photoblogmap.PhotoBlogMap_blogtitle == t.blog_title and photoblogmap.PhotoBlogMap_phototype == "0000" and photoblogmap.PhotoBlogMap_phototitle == photo.title %}
+   <BIG><br><b>{{t.blog_title}}</b><br></BIG>
+   <br><img src="{{photo.get_display_url}}"><br>
+   <br>{{t.photo_name}}<br>
+   </div>
+   <br><div class="alsp" style="word-wrap : break-word"><pre>{{t.blog_content}}</pre></div><br>
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+</body>
+</html>
